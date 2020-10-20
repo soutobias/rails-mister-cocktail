@@ -9,23 +9,41 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require("typed")
-
 require("jquery")
-require("rails-ujs")
+import 'bootstrap'
 
 import { initSelect2 } from '../components/init_select2';
-import { typed } from '../components/init_typed';
+import { initUpdateNavbarOnScroll } from '../components/init_navbar';
+import { loadDynamicBannerText } from '../components/init_typed';
+import { validRating, verifyValid } from '../components/form_validation';
 
-document.addEventListener("turbolinks:load", function() {
+
+document.addEventListener("turbolinks:load", () => {
   initSelect2();
-  typed();
+  loadDynamicBannerText();
+  initUpdateNavbarOnScroll();
+
+  const form = document.querySelector('form')
+
+  form.addEventListener('blur', (event) => {
+    event.target.style.background = '';
+    if (event.target.value === "") {
+      event.target.classList.add("is-invalid");
+      event.target.classList.remove("is-valid");
+    } else {
+      event.target.classList.add("is-valid");
+      event.target.classList.remove("is-invalid");
+    }
+    if (event.target.name === "review[rating]") {
+      validRating(event.target.value);
+    }
+    if (verifyValid()) {
+      const submit = form.querySelector('submit');
+      submit.disabled = false;
+    } else {
+      submit.disabled = true;
+    }
+  }, true);
 });
 
-import AOS from 'aos';
 
-document.addEventListener('DOMContentLoaded', function() {
-  AOS.init({
-    startEvent: 'turbolinks:load' // if you are using turbolinks
-  });
-});
