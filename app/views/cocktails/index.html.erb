@@ -10,7 +10,7 @@
     <% @cocktails.each do |cocktail| %>
       <div class="col-4">
         <%= link_to cocktail_path(cocktail) do %>
-          <div class='card m-1 p-5 card-rounded' style="background-image: url(<%= cl_image_path cocktail.photo.key, crop: :fill %>)">
+          <div class='card m-1 p-5 card-rounded' style="background-image: url('<%= cl_image_path cocktail.photo.key, crop: :fill %>')">
             <h2 class="hide-p p-3"><%= cocktail.name %> </h2>
             <% if cocktail.reviews != [] %>
               <% sum = 0 %>
