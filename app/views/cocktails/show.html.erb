@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: url(<%= @cocktail.picture_url %>)">
+<div class="banner" style="background-image: url(<%= cl_image_path @cocktail.photo.key, crop: :fill %>)">
 
   <div class="container text-center d-flex justify-content-center align-middle">
     <h1 class="font-weight-bold"><%= @cocktail.name %></h1>
