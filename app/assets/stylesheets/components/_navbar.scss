@@ -17,3 +17,51 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+@media (max-width: 960px) {
+  .navbar-lewagon {
+    .button{
+      font-size: 15px;
+
+    }
+    .input{
+      font-size: 15px;
+    }
+    .image{
+      width: 40px;
+    }
+  }
+}
+@media (max-width: 720px) {
+  .navbar-lewagon {
+    .button{
+      font-size: 13px;
+
+    }
+    .input{
+      font-size: 13px;
+      width: 160px;
+    }
+    .image{
+      width: 30px;
+    }
+  }
+}
+@media (max-width: 540px) {
+  .navbar-lewagon {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    .button{
+      font-size: 10px;
+
+    }
+    .input{
+      font-size: 10px;
+      width: 100px;
+    }
+    .image{
+      width: 30px;
+    }
+
+  }
+}

@@ -1,14 +1,14 @@
 <div class="banner">
-    <div class="container text-center d-flex justify-content-center align-middle">
-      <%= image_tag "logo.png", class: "img-large"%>
+    <div class="container text-center justify-content-center align-middle">
       <h1 class="font-weight-bold"><span id="banner-typed-text"></span> Cocktails</h1>
+      <%= image_tag "logo.png", class: "img-large"%>
     </div>
 </div>
 <div class="container pb-3">
-  <h1 class="font-weight-bold text-center p-3">All our Cocktails</h1>
-  <div class="row">
+  <h1 class="font-weight-bold text-center p-3 h1">All our Cocktails</h1>
+  <div class="row marging">
     <% @cocktails.each do |cocktail| %>
-      <div class="col-4">
+      <div class="col-12 col-lg-4">
         <%= link_to cocktail_path(cocktail) do %>
           <div class='card m-1 p-5 card-rounded' style="background-image: url('<%= cl_image_path cocktail.photo.key, crop: :fill %>')">
             <h2 class="hide-p p-3"><%= cocktail.name %> </h2>
